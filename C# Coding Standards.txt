@@ -1,0 +1,175 @@
+C# Coding Standards
+1. Introduction
+This document outlines the coding standards for C# projects. Adhering to these standards ensures that the code is consistent, readable, and maintainable across the team.
+
+2. Naming Conventions
+2.1 General
+PascalCase for all public member, type, and namespace names.
+camelCase for private and internal fields, parameters, and variables.
+ALL_CAPS for constants and readonly static fields.
+
+2.2 Classes and Interfaces
+Class names should be nouns, in PascalCase.
+csharp
+
+
+public class Student { }
+Interface names should begin with 'I' and be in PascalCase.
+csharp
+
+public interface IStudentRepository { }
+
+
+2.3 Methods
+Method names should be verbs or verb phrases, in PascalCase.
+csharp
+
+public void SaveStudent() { }
+
+
+2.4 Variables
+Use camelCase for local variables and method parameters.
+csharp
+
+int studentCount;
+string studentName;
+
+
+2.5 Constants
+Constants should be in all caps with underscores.
+csharp
+
+
+public const int MAX_STUDENTS = 100;
+
+
+3. Layout Conventions
+3.1 Indentation
+Use 4 spaces per indentation level. Do not use tabs.
+
+
+3.2 Braces
+Place open braces on a new line.
+csharp
+
+
+public class Student
+{
+    public void Save()
+    {
+        // code here
+    }
+}
+
+3.3 Spacing
+Insert a space before the opening brace in control statements.
+csharp
+
+
+if (condition)
+{
+    // code here
+}
+
+3.4 Line Length
+Limit lines to a maximum of 120 characters.
+
+
+3.5 Blank Lines
+Use blank lines to separate different sections of a method or class, such as between properties and methods.
+
+4. Commenting Conventions
+4.1 Single-Line Comments
+Use // for single-line comments.
+csharp
+
+// This is a single-line comment
+
+4.2 Multi-Line Comments
+Use /* ... */ for multi-line comments.
+csharp
+
+
+/*
+This is a multi-line comment
+that spans multiple lines.
+*/
+
+4.3 XML Documentation
+Use XML comments to document public APIs.
+csharp
+
+/// <summary>
+/// Saves the student data.
+/// </summary>
+/// <param name="student">The student object to save.</param>
+public void SaveStudent(Student student)
+{
+    // code here
+}
+
+
+5. Language Conventions
+5.1 Use of var
+Use var when the type is evident from the right side of the assignment.
+csharp
+
+
+var student = new Student();
+Do not use var when the type is not apparent.
+csharp
+
+
+Student student = GetStudent();
+
+5.2 String Interpolation
+Prefer string interpolation over string concatenation.
+csharp
+
+var message = $"Student name: {student.Name}";
+
+5.3 Null Checking
+Use is null for null checks.
+csharp
+
+
+if (student is null)
+{
+    throw new ArgumentNullException(nameof(student));
+}
+
+5.4 Exception Handling
+Use specific exceptions rather than the base Exception class.
+csharp
+
+
+try
+{
+    // code here
+}
+catch (ArgumentNullException ex)
+{
+    // handle specific exception
+}
+
+
+6. File Organization
+6.1 File Names
+File names should match the class name.
+
+6.2 File Structure
+Each file should contain a single class or interface.
+
+6.3 Using Directives
+Place using directives at the top of the file, outside the namespace declaration.
+csharp
+
+
+using System;
+using System.Collections.Generic;
+
+namespace MyNamespace
+{
+    // code here
+}
+
